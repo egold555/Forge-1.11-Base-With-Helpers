@@ -2,6 +2,9 @@ package org.golde.forge.example.proxy;
 
 import java.util.List;
 
+import org.golde.forge.example.common.registry.ExampleBlocks;
+import org.golde.forge.example.common.registry.ExampleItems;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.resources.IResourcePack;
@@ -18,7 +21,8 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
-		
+		ExampleBlocks.registerRenders();
+		ExampleItems.registerRenders();
 	}
 
 	@Override
