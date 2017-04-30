@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.golde.forge.example.common.registry.ExampleBlocks;
 import org.golde.forge.example.common.registry.ExampleItems;
+import org.golde.forge.example.common.registry.ExampleTiles;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -23,6 +24,7 @@ public class ClientProxy extends CommonProxy {
 		super.preInit(event);
 		ExampleBlocks.registerRenders();
 		ExampleItems.registerRenders();
+		ExampleTiles.registerRenders();
 	}
 
 	@Override

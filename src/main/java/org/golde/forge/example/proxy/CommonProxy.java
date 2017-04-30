@@ -2,7 +2,9 @@ package org.golde.forge.example.proxy;
 
 import org.golde.forge.example.common.Events;
 import org.golde.forge.example.common.registry.ExampleBlocks;
+import org.golde.forge.example.common.registry.ExampleEnchantments;
 import org.golde.forge.example.common.registry.ExampleItems;
+import org.golde.forge.example.common.registry.ExampleTiles;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -14,6 +16,7 @@ public class CommonProxy {
 
 	/*
 	 * Blocks
+	 * Tile Entities
 	 * Items
 	 * Entities
 	 * Ore Dictionary
@@ -21,6 +24,8 @@ public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 		ExampleBlocks.register();
 		ExampleItems.register();
+		ExampleTiles.register();
+		ExampleEnchantments.register();
 	}
 
 	/*
