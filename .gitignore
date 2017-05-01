@@ -45,7 +45,6 @@ gradlew
 gradle/
 gradle.properties
 forge-1.11.2-13.20.0.2222-changelog.txt
-build.gradle
 README.txt
 Paulscode SoundSystem CodecIBXM License.txt
 Paulscode IBXM Library License.txt
