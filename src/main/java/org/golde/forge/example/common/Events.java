@@ -9,13 +9,6 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 public class Events {
 
-	@SubscribeEvent
-    public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
-		String all = "";
-		for(RenderIconFont icon:RenderIconFont.values()) {
-			all += icon.getValue();
-		}
-		event.player.sendMessage(new TextComponentString(all));
-	}
+	
 	
 }
