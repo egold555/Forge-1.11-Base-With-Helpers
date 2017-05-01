@@ -17,9 +17,13 @@ public class Loader {
 	private static Map < UUID, ResourceLocation > capes = new HashMap <UUID, ResourceLocation> ();
 	private static Map < UUID, ResourceLocation > elytras = new HashMap <UUID, ResourceLocation> ();
 	private static Map < UUID, ResourceLocation > ears = new HashMap <UUID, ResourceLocation> ();
+	public static Map < UUID, String > urls_Capes = new HashMap <UUID, String> ();
+	public static Map < UUID, String > urls_Elytras = new HashMap <UUID, String> ();
+	public static Map < UUID, String > urls_Ears = new HashMap <UUID, String> ();
 
 	public static void loadCape(final UUID uuid) {
-		String url = EricsCapeAPI.getInstance().getUrls(uuid)[0];
+		String url = urls_Capes.get(uuid);
+		if(url == null) {return;}
 		final ResourceLocation resourceLocation = new ResourceLocation(AConstants.NAME + "/capes/" + uuid.toString() + ".png");
 		TextureManager textureManager = Minecraft.getMinecraft().getTextureManager();
 
@@ -41,7 +45,8 @@ public class Loader {
 	}
 	
 	public static void loadElytra(final UUID uuid) {
-		String url = EricsCapeAPI.getInstance().getUrls(uuid)[1];
+		String url = urls_Elytras.get(uuid);
+		if(url == null) {return;}
 		final ResourceLocation resourceLocation = new ResourceLocation(AConstants.NAME + "/elytras/" + uuid.toString() + ".png");
 		TextureManager textureManager = Minecraft.getMinecraft().getTextureManager();
 
@@ -63,7 +68,8 @@ public class Loader {
 	}
 	
 	public static void loadEars(final UUID uuid) {
-		String url = EricsCapeAPI.getInstance().getUrls(uuid)[2];
+		String url = urls_Ears.get(uuid);
+		if(url == null) {return;}
 		final ResourceLocation resourceLocation = new ResourceLocation(AConstants.NAME + "/ears/" + uuid.toString() + ".png");
 		TextureManager textureManager = Minecraft.getMinecraft().getTextureManager();
 

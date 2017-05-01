@@ -1,5 +1,8 @@
 package org.golde.forge.example;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Constants {
 
 	// Mod Constants
@@ -9,6 +12,7 @@ public class Constants {
 	public static final String DEPENDENCIES = "";
 	public static final String PREFIX_MOD = MOD_ID + ":";
 	public static final String MC_VERSION = "[1.11.2]";
+	public static final Logger LOG = LogManager.getLogger(MOD_NAME);
 
 	// Proxy Constants
 	public static final String PROXY_COMMON = "org.golde.forge.example.proxy.CommonProxy";

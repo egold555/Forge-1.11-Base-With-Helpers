@@ -34,6 +34,7 @@ public class EricsCapeAPI {
 		return myObj;
 	}
 
+	String CLIENT_UUID;
 	public void clientPostInit() {
 		MinecraftForge.EVENT_BUS.register(new JoinListener());
 		MinecraftForge.EVENT_BUS.register(new Render2DListener());
@@ -51,48 +52,28 @@ public class EricsCapeAPI {
 			renderPlayer.addLayer(new LayerElytra(renderPlayer));
 			renderPlayer.addLayer(new LayerEars(renderPlayer));
 		}
+		CLIENT_UUID = Minecraft.getMinecraft().getSession().getProfile().getId().toString();
 	}
 
+	public static final String EXAMPLE_CAPE = "http://bit.ly/2pByn5N";
+	public static final String EXAMPLE_ELYTRA = "http://bit.ly/2pByn5N";
+	public static final String EXAMPLE_EARS = "http://textures.minecraft.net/texture/48db3fbf18e5f0ef266b47f5e6b54126a55f331558ff34cb17468753d84d096";
 
-	private String capeUrl = "http://bit.ly/2pByn5N";
-	private String elytraUrl = "http://bit.ly/2pByn5N";
-	private String earsUrl = "http://textures.minecraft.net/texture/48db3fbf18e5f0ef266b47f5e6b54126a55f331558ff34cb17468753d84d096";
-	/**
-	 * %uuid% gets replaced with uuid of player
-	 * @param url
-	 */
-	public void setCapeUrl(String url) {
-		capeUrl = url;
+	public void setCapeAndElytraUrl(String uuid, String url) {
+		Loader.urls_Capes.put(UUID.fromString(uuid), url);
+		Loader.urls_Elytras.put(UUID.fromString(uuid), url);
 	}
 
-	public void setElytraUrl(String url) {
-		elytraUrl = url;
-	}
-	
-	public void setEarsUrl(String url) {
-		earsUrl = url;
+	public void setCapeUrl(String uuid, String url) {
+		Loader.urls_Capes.put(UUID.fromString(uuid), url);
 	}
 
-	private boolean[] wsr =  {true, true, false};
-	public void setWhatShouldRender(boolean cape, boolean elytra, boolean ears) {
-		wsr = new boolean[] {cape, elytra, ears};
-	}
-	
-	public boolean[] getWhatSHouldRender() {
-		return wsr;
+	public void setElytraUrl(String uuid, String url) {
+		Loader.urls_Elytras.put(UUID.fromString(uuid), url);
 	}
 
-	public String[] getUrls(UUID uuid) {
-		capeUrl = capeUrl.replace("%uuid%", uuid.toString());
-		capeUrl = capeUrl.replace("%UUID%", uuid.toString());
-
-		elytraUrl = elytraUrl.replace("%uuid%", uuid.toString());
-		elytraUrl = elytraUrl.replace("%UUID%", uuid.toString());
-		
-		earsUrl = earsUrl.replace("%uuid%", uuid.toString());
-		earsUrl = earsUrl.replace("%UUID%", uuid.toString());
-		
-		return new String[] {capeUrl, elytraUrl, earsUrl};
+	public void setEarsUrl(String uuid, String url) {
+		Loader.urls_Ears.put(UUID.fromString(uuid), url);
 	}
 
 }
