@@ -31,7 +31,7 @@ public class AConstants {
 	}
 	
 	public static FontRenderer getFontRenderer() {
-		return mc.fontRendererObj;
+		return mc.fontRenderer;
 	}
 	
 }

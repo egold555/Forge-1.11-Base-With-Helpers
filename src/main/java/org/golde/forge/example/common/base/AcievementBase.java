@@ -12,7 +12,7 @@ import net.minecraft.stats.Achievement;
 
 public class AcievementBase extends Achievement{
 
-	public static final List<Achievement> achievements = new ArrayList<>();
+	public static final List<Achievement> achievements = new ArrayList<Achievement>();
 	
 	public AcievementBase(String name, int x, int y, ItemStack icon, Achievement parent) {
 		super("achievement." + Constants.PREFIX_MOD + name, Constants.PREFIX_MOD + name, x, y, icon, parent);
